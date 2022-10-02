@@ -1,43 +1,40 @@
-from fastapi import FastAPI, Path, Query
+from fields.routers import fields_router
+from fastapi import FastAPI
 
-from pydantic import BaseModel
-from common.models import ResponseModel
-from typing import List
+# Swagger API custom description
 
-app = FastAPI()
+description = """
+Farm Watch API powers the [farmwatch web app]()
 
+## Functionalities
 
-@app.patch("/fields/{id}")
-async def edit_field():
-    # edit name, shape etc
-    pass
+1. Data manager - Handle data upload, transformation and conversion from the FE
+2. Farm analytics & insight
+3. Near real time crop monitoring
+4. Weather information and forecast
 
+"""
 
-@app.post("/fields")
-async def upload_field():
-    pass
-
-
-@app.get("/users/{user_id}/fields")
-async def get_user_fields(
-    user_id: str = Path(
-        default=None, description="The ID of the user", min_length=1, max_length=5
-    ),
-    q: str = Query(
-        default=None, description="The data to query with", min_length=2, max_length=10
-    ),
-):
-    return q
+tags_metadata = [
+    {
+        "name": "fields",
+        "description": "A plot of land used for agricultural activities",
+    },
+]
 
 
-@app.delete("/fields/{field_id}")
-async def delete_field(
-    field_id: str = Path(..., description="The ID of the field to delete")
-):
-    pass
+# Fast API application
+
+app = FastAPI(
+    title="Farm Watch API",
+    description=description,
+    version="0.0.1",
+    contact={"name": "Emmanuel Jolaiya", "url": "https://github.com/jeafreezy"},
+    license_info={
+        "name": "MIT",
+    },
+    openapi_tags=tags_metadata,
+)
 
 
-@app.get("/fields/{field_id}")
-async def download_field():
-
-    pass
+app.include_router(fields_router)

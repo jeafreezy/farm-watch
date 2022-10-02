@@ -4,10 +4,9 @@
 
 1. Data manager - Handle data upload, transformation and conversion from the FE
 2. Farm analytics & insight
-
 3. Near real time crop monitoring
-
 4. Weather information and forecast
+5. Authentication with OSM
 
 ## Stack
 
@@ -31,3 +30,7 @@
 - To start the dev server locally
 
        uvicorn --app-dir=./src main:app --reload
+
+## Terms
+
+- Field : A land used for agricultural purposes. These lands are represented with polygon geometries.
