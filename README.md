@@ -24,3 +24,6 @@ This project has 3 objectives:
 - Deployment : AWS - ECS
 - ...
 
+## Timeline
+
+Due to busy schedules and other engagements, this might take me a while. But I am envisaging about 3 months for this because I don't want to rush and I want to ensure I understand every underlying concepts deeply!
