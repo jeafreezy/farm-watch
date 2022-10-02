@@ -12,8 +12,9 @@ What does STAC means? I can explain. What does COGs mean? I know it. But, what h
 This project has 3 objectives:
 
 1. To strenghthen my knowledge of these tools
-2. To build soemthing useful and innovative using these tools
-3. To let people know the possibilties and how to combine several geospatial tools together to solve problems in their domain
+2. To build something useful and innovative using these tools
+3. To let people know the possibilties and how to combine several geospatial tools together to solve problems in their domain of interest.
+4. To build upon the skills I have learned while building [**Spatialnode**](https://spatialnode.net). Never stop learning!
 
 ## Tech Stack
 
