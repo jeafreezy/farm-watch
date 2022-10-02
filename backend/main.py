@@ -1,5 +1,18 @@
-from fields.routers import fields_router
+# custom modules
+from fields.models import BaseModel as field_models
+from fields.routers import router as field_router
+from common.routers import router as common_router
+from users.models import BaseModel as user_models
+
+# FastAPI & SQLAlchemy
 from fastapi import FastAPI
+from common.database import engine
+
+
+# Models
+field_models.metadata.create_all(bind=engine)
+user_models.metadata.create_all(bind=engine)
+
 
 # Swagger API custom description
 
@@ -20,6 +33,10 @@ tags_metadata = [
         "name": "fields",
         "description": "A plot of land used for agricultural activities",
     },
+    {
+        "name": "common",
+        "description": "Common endpoints such as healthcheck etc...",
+    },
 ]
 
 
@@ -36,5 +53,7 @@ app = FastAPI(
     openapi_tags=tags_metadata,
 )
 
+# Routers
 
-app.include_router(fields_router)
+app.include_router(field_router)
+app.include_router(common_router)

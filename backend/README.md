@@ -29,7 +29,16 @@
 
 - To start the dev server locally
 
-       uvicorn --app-dir=./src main:app --reload
+      uvicorn main:app --reload
+
+- To create migration
+
+      alembic revision --autogenerate  -m "initial models"
+
+- To make migrations
+
+      alembic upgrade base
+      alembic downgrade base -> reverts all changes
 
 ## Terms
 
