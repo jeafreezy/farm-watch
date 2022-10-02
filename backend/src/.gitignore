@@ -1,2 +1,3 @@
 __pychache__
 .mypy_cache
+.env
