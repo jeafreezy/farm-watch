@@ -7,13 +7,6 @@ from sqlalchemy.orm import relationship
 
 class Field(BaseModel):
     __tablename__ = "fields"
-    user_id = Column(
-        UUID(as_uuid=True),
-        ForeignKey("users.id"),
-        nullable=False,
-        primary_key=True,
-        index=True,
-    )
     field_name = Column(
         String(50), nullable=False
     )  # -> autonegerate upon creation for the user e.g Field 1, Field 2 etc
@@ -24,4 +17,3 @@ class Field(BaseModel):
     geom = Column(
         Geometry(geometry_type="POLYGON", srid=4326, spatial_index=True, nullable=False)
     )
-    owner = relationship("User", back_populates="fields")

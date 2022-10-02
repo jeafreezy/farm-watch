@@ -2,7 +2,7 @@
 from fields.models import BaseModel as field_models
 from fields.routers import router as field_router
 from common.routers import router as common_router
-from users.models import BaseModel as user_models
+
 
 # FastAPI & SQLAlchemy
 from fastapi import FastAPI
@@ -11,7 +11,6 @@ from common.database import engine
 
 # Models
 field_models.metadata.create_all(bind=engine)
-user_models.metadata.create_all(bind=engine)
 
 
 # Swagger API custom description
