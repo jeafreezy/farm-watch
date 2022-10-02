@@ -1,6 +1,4 @@
-
 # Farm Watch Backend
-
 
 ## Functionalities
 
@@ -11,22 +9,25 @@
 
 4. Weather information and forecast
 
-
 ## Stack
-* Framework: [**Fast API**](https://fastapi.tiangolo.com/)
-  * Best practices inspiration : https://github.com/zhanymkanov/fastapi-best-practices#1-project-structure-consistent--predictable
 
-* Development
-  * IDE - Vscode
-  * Formatter - Black
-  * Package manager - Poetry
-  * Linting - Mypy
-  * Containerization - Docker
+- Framework: [**Fast API**](https://fastapi.tiangolo.com/)
 
-* Dependencies
-  * Pydantic
-  
+  - Best practices inspiration : https://github.com/zhanymkanov/fastapi-best-practices#1-project-structure-consistent--predictable
+
+- Development
+
+  - IDE - Vscode
+  - Formatter - Black
+  - Package manager - Poetry
+  - Linting - Mypy
+  - Containerization - Docker
+
+- Dependencies
+  - Pydantic
+
 ## Usage
- - To start the dev server locally
 
-        uvicorn --app-dir=./src main:app --reload
+- To start the dev server locally
+
+       uvicorn --app-dir=./src main:app --reload
