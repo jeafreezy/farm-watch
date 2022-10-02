@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = "Backend for the farm watch portal"
+authors = ["jeafreezy <jolaiyaemmanuel@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+uvicorn = "^0.18.3"
+fastapi = "^0.85.0"
+pydantic = "^1.10.2"
+black = "^22.8.0"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.981"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
