@@ -2,7 +2,7 @@
 name = "backend"
 version = "0.1.0"
 description = "Backend for the farm watch portal"
-authors = ["jeafreezy <jolaiyaemmanuel@gmail.com>"]
+authors = ["jeafreezy"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -17,6 +17,8 @@ psycopg2-binary = "^2.9.3"
 python-decouple = "^3.6"
 SQLAlchemy-Utils = "^0.38.3"
 alembic = "^1.8.1"
+python-multipart = "^0.0.5"
+
 
 
 [tool.poetry.group.dev.dependencies]

@@ -40,6 +40,22 @@
       alembic upgrade base
       alembic downgrade base -> reverts all changes
 
+- To build the Docker image and start the container
+
+      docker build -t backend:dev .
+
+- To start the container
+
+      docker run -d --name devcontainer -p 8000:8000 backend:dev
+
 ## Terms
 
 - Field : A land used for agricultural purposes. These lands are represented with polygon geometries.
+
+## PRIORITY
+
+- Imagery Search
+- Tiler
+- Band Math
+- Weather
+- Data manager

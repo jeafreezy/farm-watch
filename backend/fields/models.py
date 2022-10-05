@@ -1,8 +1,6 @@
-from geoalchemy2 import Geography, Geometry
-from sqlalchemy import Column, Integer, String, ARRAY, FLOAT, ForeignKey
+from geoalchemy2 import Geometry
+from sqlalchemy import Column, String, ARRAY, FLOAT
 from common.models import BaseModel
-from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.orm import relationship
 
 
 class Field(BaseModel):

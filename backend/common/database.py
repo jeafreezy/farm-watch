@@ -6,7 +6,7 @@ from decouple import config
 
 # Database setup
 
-engine = create_engine(config("SQLALCHEMY_DATABASE_URL"), future=True, echo=True)
+engine = create_engine(config("SQLALCHEMY_DATABASE_URL"), future=True)  # , echo=True
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 

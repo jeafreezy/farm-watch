@@ -5,3 +5,4 @@ __pychache__
 .mypy_cache
 .env
 alembic.ini
+.devcontainer
