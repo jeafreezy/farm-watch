@@ -92,21 +92,6 @@ doc = ["mdx-include (>=1.4.1,<2.0.0)", "mkdocs (>=1.1.2,<2.0.0)", "mkdocs-markdo
 test = ["anyio[trio] (>=3.2.1,<4.0.0)", "black (==22.8.0)", "databases[sqlite] (>=0.3.2,<0.7.0)", "email-validator (>=1.1.1,<2.0.0)", "flake8 (>=3.8.3,<6.0.0)", "flask (>=1.1.2,<3.0.0)", "httpx (>=0.23.0,<0.24.0)", "isort (>=5.0.6,<6.0.0)", "mypy (==0.971)", "orjson (>=3.2.1,<4.0.0)", "passlib[bcrypt] (>=1.7.2,<2.0.0)", "peewee (>=3.13.3,<4.0.0)", "pytest (>=7.1.3,<8.0.0)", "pytest-cov (>=2.12.0,<4.0.0)", "python-jose[cryptography] (>=3.3.0,<4.0.0)", "python-multipart (>=0.0.5,<0.0.6)", "pyyaml (>=5.3.1,<7.0.0)", "requests (>=2.24.0,<3.0.0)", "sqlalchemy (>=1.3.18,<1.5.0)", "types-orjson (==3.6.2)", "types-ujson (==5.4.0)", "ujson (>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0,<6.0.0)"]
 
 [[package]]
-name = "GDAL"
-version = "3.4.3"
-description = "GDAL: Geospatial Data Abstraction Library"
-category = "main"
-optional = false
-python-versions = ">=3.6.0"
-
-[package.extras]
-numpy = ["numpy (>1.19.0)"]
-
-[package.source]
-type = "file"
-url = "../../../../Users/jolai/Downloads/GDAL-3.4.3-cp38-cp38-win32 (1).whl"
-
-[[package]]
 name = "GeoAlchemy2"
 version = "0.12.5"
 description = "Using SQLAlchemy with Spatial Databases"
@@ -444,7 +429,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "9d7e74e8dd25f5e31cff908457c29b2e37903cb1be70fd01cedc90945c13fb11"
+content-hash = "c21fed272fcdbc96683f72d37dcf0b8c9814752bebc6e1d6664441ac617bb19f"
 
 [metadata.files]
 alembic = [
@@ -491,9 +476,6 @@ colorama = [
 fastapi = [
     {file = "fastapi-0.85.0-py3-none-any.whl", hash = "sha256:1803d962f169dc9f8dde54a64b22eb16f6d81573f54401971f90f0a67234a8b4"},
     {file = "fastapi-0.85.0.tar.gz", hash = "sha256:bb219cfafd0d2ccf8f32310c9a257a06b0210bd8e2a03706a6f5a9f9f1416878"},
-]
-GDAL = [
-    {file = "GDAL-3.4.3-cp38-cp38-win32 (1).whl", hash = "sha256:6713060c1309292d54314c04d330fb9ec03300808a76d949d9c91bf205a54125"},
 ]
 GeoAlchemy2 = [
     {file = "GeoAlchemy2-0.12.5-py2.py3-none-any.whl", hash = "sha256:3a59eb651df95b3dfee8e1d82f4d18c80b75f712860a0a3080defc6b0435070d"},

@@ -1,16 +1,16 @@
 # custom modules
-from fields.models import BaseModel as field_models
-from fields.routers import router as field_router
+# from fields.models import BaseModel as field_models
+# from fields.routers import router as field_router
 from common.routers import router as common_router
-
+from datamanager.routers import router as datamanager_router
 
 # FastAPI & SQLAlchemy
 from fastapi import FastAPI
-from common.database import engine
+# from common.database import engine
 
 
 # Models
-field_models.metadata.create_all(bind=engine)
+# field_models.metadata.create_all(bind=engine)
 
 
 # Swagger API custom description
@@ -54,5 +54,6 @@ app = FastAPI(
 
 # Routers
 
-app.include_router(field_router)
+# app.include_router(field_router)
 app.include_router(common_router)
+app.include_router(datamanager_router)

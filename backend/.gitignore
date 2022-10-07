@@ -1,8 +1,7 @@
 __pychache__
-./__pychache__
-./*/__pychache__
-./**/__pychache__
+./__pychache__/
+./*/__pychache__/
+./**/__pychache__/
 .mypy_cache
 .env
 alembic.ini
-.devcontainer

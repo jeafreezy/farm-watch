@@ -1,7 +1,7 @@
 import fastapi
 
 
-router = fastapi.APIRouter(tags=["common"])
+router = fastapi.APIRouter(tags=["Common"])
 
 
 @router.get("/health-check")
