@@ -1,0 +1,8 @@
+name: farmwatch-api
+services:
+  - dockerfile_path: ../Docker/Dockerfile
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: jeafreeze/farm-watch
+    name: farmwatch-api
