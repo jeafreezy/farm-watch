@@ -54,7 +54,7 @@ RUN apt-get install -y proj-bin
 # # Switch to 'dev'
 # USER dev
 
-COPY . . 
+COPY .. . 
 
 EXPOSE 8000
 ENTRYPOINT [ "sh","entrypoint.sh" ]
