@@ -1,13 +1,29 @@
 from fastapi import APIRouter
 from fastapi import UploadFile
+
+from .models import QueryRequestModel
 from .utils import file_transformer, validate_files
 from common.responses import api_response
 from typing import List
+import httpx
 
-router = APIRouter(tags=["Data Manager"], prefix="/upload-files")
+
+router = APIRouter(tags=["Data Manager & EO Factory"], prefix="")
+
+#SpatioTemporal Access Catalogue - STAC Cloud Optimized GeoTiffs (COGs)
+#explore with DEA ARD STAC endpoints
+
+STAC_ENDPOINT = "https://earth-search.aws.element84.com/v0/search"
 
 
-@router.post("/")
+HEADERS = {
+        "Content-Type":"application/json",
+        "Accept":"application/geo+json"
+}
+
+
+
+@router.post("/upload-files")
 async def upload_files(files: List[UploadFile]):
     """
     accepts : {
@@ -48,3 +64,40 @@ async def upload_files(files: List[UploadFile]):
 
 
 
+@router.post(path='/search-imagery')
+async def search_imagery(query:QueryRequestModel):
+    """
+        Search for EO Imagery based on provided query parameters from the FE
+
+    """
+    query_dict = query.dict()
+
+    collection = query_dict["collection"]
+    start_date = query_dict["start_date"]
+    end_date = query_dict["end_date"]
+    cloud_cover = query_dict["cloud_cover"]
+    limit = query_dict["limit"]
+    bbox = query_dict["bbox"]
+
+    post_body = {
+        "collections":[collection], #sentinel-s2-l2a-cogs, landsat...
+        "datetime":f"{start_date}/{end_date}",
+        "query":{
+            "eo:cloud_cover":{
+                "lt":cloud_cover
+            }
+        },
+        "bbox":bbox,
+        "limit":limit,
+        #"intersects":geojson geometry
+        #TODO: add more filters to reduce response object from STAC API
+    }
+    
+
+
+    client = httpx.AsyncClient()
+
+    res = await client.post(url=STAC_ENDPOINT,headers=HEADERS,json=post_body)
+    
+    return res.json()
+    

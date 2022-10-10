@@ -31,7 +31,6 @@ def validate_files(files: List[UploadFile]):
         validated_files.append(file)
     return validated_files, 200, "Files are supported"
 
-
 def check_coordinates(coordinates):
 
      #check if the feature has at least four array of coordinates
@@ -52,7 +51,6 @@ def check_coordinates(coordinates):
     if not closed_ring:
         return None, 400, f"Invalid GeoJSON feature. Feature must be a valid Polygon/MultiPolygon"
     return
-
 
 def validate_feature(feature):
 
@@ -160,5 +158,4 @@ def file_transformer(valid_files: List[UploadFile]):
 
                     GEOJSON_SCHEMA["features"].append(modified_feature)
     return GEOJSON_SCHEMA, 200, f"Feature transformed successfully"
-
 

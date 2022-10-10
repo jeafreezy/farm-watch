@@ -18,6 +18,8 @@ python-decouple = "^3.6"
 SQLAlchemy-Utils = "^0.38.3"
 alembic = "^1.8.1"
 python-multipart = "^0.0.5"
+"titiler.application" = "^0.7.1"
+httpx = "^0.23.0"
 
 
 

@@ -1,16 +1,14 @@
 # custom modules
-# from fields.models import BaseModel as field_models
-# from fields.routers import router as field_router
 from common.routers import router as common_router
 from datamanager.routers import router as datamanager_router
 
-# FastAPI & SQLAlchemy
+#fastAPI module
 from fastapi import FastAPI
-# from common.database import engine
 
-
-# Models
-# field_models.metadata.create_all(bind=engine)
+#titiler modules
+from titiler.core.errors import DEFAULT_STATUS_CODES, add_exception_handlers
+from titiler.application.routers.stac import stac
+from titiler.application.routers.cog import cog
 
 
 # Swagger API custom description
@@ -27,16 +25,16 @@ Farm Watch API powers the [farmwatch web app]()
 
 """
 
-tags_metadata = [
-    {
-        "name": "fields",
-        "description": "A plot of land used for agricultural activities",
-    },
-    {
-        "name": "common",
-        "description": "Common endpoints such as healthcheck etc...",
-    },
-]
+# tags_metadata = [
+    # {
+    #     "name": "fields",
+    #     "description": "A plot of land used for agricultural activities",
+    # },
+    # {
+    #     "name": "common",
+    #     "description": "Common endpoints such as healthcheck etc...",
+    # },
+# ]
 
 
 # Fast API application
@@ -49,11 +47,13 @@ app = FastAPI(
     license_info={
         "name": "MIT",
     },
-    openapi_tags=tags_metadata,
+    # openapi_tags=tags_metadata,
 )
 
 # Routers
-
-# app.include_router(field_router)
 app.include_router(common_router)
 app.include_router(datamanager_router)
+
+app.include_router(cog.router, prefix="/cog", tags=["Cloud Optimized GeoTIFF"])
+add_exception_handlers(app, DEFAULT_STATUS_CODES)
+app.include_router(stac.router, prefix="/stac", tags=["SpatioTemporal Asset Catalog"])
