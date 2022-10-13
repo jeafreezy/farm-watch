@@ -10,10 +10,29 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-/* 
+
+/* Customizing search box  */
+/* TODO: update with search icon and cancel icon */
+input[type='search']::-webkit-search-cancel-button {
+    /* -webkit-appearance: none; */
+    height: 1em;
+    width: 1em;
+    border-radius: 50em;
+    /* background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg)
+        no-repeat 50% 50%; */
+    background-size: contain;
+    opacity: 0;
+    pointer-events: none;
+}
+
+input[type='search']:focus::-webkit-search-cancel-button {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Tailwind Reusables  */
 @layer components {
-    Write here only styles that are reusable across components */
-/* .btn-primary{
-        @apply px-2 py-2
+    .zoom-controls {
+        @apply w-10 bg-brand-black bg-opacity-90 p-1 text-center  text-[25px] font-semibold text-brand-white  hover:bg-opacity-100;
     }
-} */
+}
