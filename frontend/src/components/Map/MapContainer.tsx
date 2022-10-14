@@ -1,3 +1,4 @@
+import SidePanelContainer from '../SidePanel/SidePanelContainer';
 import Geocoder from './Geocoder';
 import Map from './Map';
 import MeasureControl from './MeasureControl';
@@ -7,9 +8,12 @@ const MapContainer = () => {
     return (
         <div className="relative h-full w-full">
             <Map />
-            <ZoomControl />
-            <MeasureControl />
+            <div className="absolute top-[50vh] left-4 space-y-2">
+                <ZoomControl />
+                <MeasureControl />
+            </div>
             <Geocoder />
+            <SidePanelContainer />
         </div>
     );
 };

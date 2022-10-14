@@ -35,4 +35,7 @@ input[type='search']:focus::-webkit-search-cancel-button {
     .zoom-controls {
         @apply w-10 bg-brand-black bg-opacity-90 p-1 text-center  text-[25px] font-semibold text-brand-white  hover:bg-opacity-100;
     }
+    .active {
+        width: 190px !important;
+    }
 }
