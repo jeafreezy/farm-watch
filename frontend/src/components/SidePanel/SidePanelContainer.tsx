@@ -1,12 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, ReactElement } from 'react';
 import PanelItems from './PanelItems';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
-const SidePanelContainer = () => {
+const SidePanelContainer = (): ReactElement => {
     const [showPanel, setShowPanel] = useState(false);
     const sidebarRef = useRef<HTMLDivElement>(null);
 
-    const handleHamBurgerClickEvent = () => {
+    const handleHamBurgerClickEvent = (): void => {
         if (sidebarRef && sidebarRef.current) {
             sidebarRef.current?.classList.toggle('active');
             setShowPanel(!showPanel);

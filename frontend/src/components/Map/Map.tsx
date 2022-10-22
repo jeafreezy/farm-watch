@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, ReactElement } from 'react';
 import maplibregl from 'maplibre-gl';
 
-const Map = () => {
-    //useref
+const Map = (): ReactElement => {
     useEffect(() => {
         new maplibregl.Map({
             container: 'mapContainer',

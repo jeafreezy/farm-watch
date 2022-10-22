@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-const Geocoder = () => {
+const Geocoder = (): ReactElement => {
     return (
         <div className="absolute top-4 left-4 flex items-center justify-between rounded-lg border-none bg-brand-black p-3 font-semibold text-brand-white opacity-90 hover:opacity-100  ">
             <input

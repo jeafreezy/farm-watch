@@ -3,8 +3,8 @@ import Geocoder from './Geocoder';
 import Map from './Map';
 import MeasureControl from './MeasureControl';
 import ZoomControl from './ZoomControl';
-
-const MapContainer = () => {
+import React, { ReactElement } from 'react';
+const MapContainer = (): ReactElement => {
     return (
         <div className="relative h-full w-full">
             <Map />

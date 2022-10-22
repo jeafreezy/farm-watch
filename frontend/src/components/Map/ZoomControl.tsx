@@ -1,4 +1,6 @@
-const ZoomControl = () => {
+import React, { ReactElement } from 'react';
+
+const ZoomControl = (): ReactElement => {
     return (
         <div className="cursor-pointer rounded-lg  ">
             <div className="zoom-controls rounded-t-lg ">+</div>
