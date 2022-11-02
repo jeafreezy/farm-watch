@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
+import { useDataManagerContext } from '../../context/DataManagerContext';
+
 type DataManagerPanelProps = {
     show: boolean;
     showPanel: boolean;
@@ -9,6 +11,8 @@ const DataManagerPanel = ({
     show,
     showPanel,
 }: DataManagerPanelProps): ReactElement => {
+    const { getInputProps, getRootProps } = useDataManagerContext();
+
     return show ? (
         <aside
             className={`${
@@ -20,8 +24,12 @@ const DataManagerPanel = ({
                 <span>0/10mb</span>
             </div>
 
-            <div className="m-2 flex h-60 flex-col items-center justify-center rounded-lg border-2 border-dashed border-brand-blue bg-brand-blue bg-opacity-20 p-4  text-center text-base font-light text-brand-blue-light">
-                <AiOutlineCloudUpload size={35} />
+            <div
+                {...getRootProps()}
+                className="m-2 flex h-60 flex-col items-center justify-center rounded-lg border-2 border-dashed border-brand-blue bg-brand-blue bg-opacity-20 p-4  text-center text-base font-light text-brand-blue-light"
+            >
+                <AiOutlineCloudUpload size={35} className="animate-bounce" />
+                <input {...getInputProps()}></input>
                 <span className=" font-bold text-white">
                     <span className="text-brand-blue underline">
                         Click here
