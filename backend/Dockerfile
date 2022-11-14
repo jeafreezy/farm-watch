@@ -14,6 +14,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 # RUN pip3 install --no-cache-dir --upgrade pip
 # RUN pip3 install poetry
 # COPY poetry.lock pyproject.toml ./
+COPY requirements.txt .
 # RUN poetry export --without-hashes --format=requirements.txt > requirements.txt
 
 
@@ -27,9 +28,8 @@ RUN apt-get install -y software-properties-common
 RUN apt-get update
 
 
-# install Fiona
 
-RUN pip3 install Fiona
+RUN pip3 install -r requirements.txt
 
 # GEOS -> For geometry manipulation
 # Source: Official geos doc -> https://libgeos.org/usage/install/#ubuntu
@@ -42,7 +42,7 @@ RUN pip3 install Fiona
 RUN apt-get install -y proj-bin
 
 
-RUN pip3 install -r requirements.txt
+
 
 #copy other project files including .env
 # Create a user group 'xyzgroup'
