@@ -10,7 +10,7 @@ import httpx
 
 router = APIRouter(tags=["Data Manager & EO Factory"], prefix="")
 
-#SpatioTemporal Access Catalogue - STAC Cloud Optimized GeoTiffs (COGs)
+#SpatioTemporal Asset Catalogue - STAC Cloud Optimized GeoTiffs (COGs)
 #explore with DEA ARD STAC endpoints
 
 STAC_ENDPOINT = "https://earth-search.aws.element84.com/v0/search"
