@@ -11,11 +11,11 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 #source: https://stackoverflow.com/questions/53835198/integrating-python-poetry-with-docker
 
 #Upgrade pip, install poetry, export poetry to requirements.txt and install the requirement files
-RUN pip3 install --no-cache-dir --upgrade pip
-RUN pip3 install poetry
-COPY poetry.lock pyproject.toml ./
-RUN poetry export --without-hashes --format=requirements.txt > requirements.txt
-RUN pip3 install -r requirements.txt
+# RUN pip3 install --no-cache-dir --upgrade pip
+# RUN pip3 install poetry
+# COPY poetry.lock pyproject.toml ./
+# RUN poetry export --without-hashes --format=requirements.txt > requirements.txt
+
 
 
 #install geospatial libraries -> GDAL, PROJ and GEOS
@@ -41,15 +41,18 @@ RUN pip3 install Fiona
 
 RUN apt-get install -y proj-bin
 
+
+RUN pip3 install -r requirements.txt
+
 #copy other project files including .env
 # Create a user group 'xyzgroup'
-# RUN addgroup -S spatialnode
+# RUN addgroup -S farmwatch
 
 # # Create a user 'appuser' under 'xyzgroup'
-# RUN adduser -S -D -h /usr/app/src dev spatialnode
+# RUN adduser -S -D -h /usr/app/src dev farmwatch
 
 # # Chown all the files to the devr.
-# RUN chown -R dev:spatialnode /usr/app
+# RUN chown -R dev:farmwatch /usr/app
 
 # # Switch to 'dev'
 # USER dev
