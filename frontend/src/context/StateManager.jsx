@@ -1,8 +1,11 @@
 import { React } from 'react';
 import DataManagerProvider from './DataManagerContext';
+import SessionProvider from './SessionContext';
 
 const StateManager = ({ children }) => (
-    <DataManagerProvider>{children}</DataManagerProvider>
+    <SessionProvider>
+        <DataManagerProvider>{children}</DataManagerProvider>
+    </SessionProvider>
 );
 
 export default StateManager;

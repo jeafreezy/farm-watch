@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import { TiWeatherCloudy } from 'react-icons/ti';
 import { TbHeartRateMonitor, TbDatabase } from 'react-icons/tb';
-import DataManagerPanel from './DataManagerPanel';
+import DataManagerPanel from './DataManager/BaseContainer';
 
 var ICON_SIZE = 25;
 
@@ -20,7 +20,7 @@ const panelItems = [
     },
 ];
 
-type panelItemsType = {
+type TPanelItems = {
     name: string;
     icon: JSX.Element;
 };
@@ -28,7 +28,7 @@ type panelItemsType = {
 const PanelItems = ({ showPanel }: { showPanel: boolean }): ReactElement => {
     const [showDataManagerPanel, setDataManagerSidePanel] = useState(false);
 
-    const handleItemClickEvent = (item: panelItemsType) => {
+    const handleItemClickEvent = (item: TPanelItems) => {
         if (item.name === 'Data manager') {
             setDataManagerSidePanel(!showDataManagerPanel);
         }

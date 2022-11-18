@@ -1,7 +1,7 @@
 import React from 'react';
 import MapContainer from './components/Map/MapContainer';
 import StateManager from './context/StateManager';
-
+import { ToastContainer } from 'react-toastify';
 function App() {
     return (
         <StateManager>
@@ -10,6 +10,7 @@ function App() {
                     <MapContainer />
                 </div>
             </div>
+            <ToastContainer />
         </StateManager>
     );
 }
