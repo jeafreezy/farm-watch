@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from fastapi import UploadFile
 
-from .models import QueryRequestModel
+from .models import ImagerySearchQueryRequestModel
 from .utils import file_transformer, validate_files
 from common.responses import api_response
 from typing import List
@@ -26,22 +26,22 @@ HEADERS = {
 @router.post("/upload-files")
 async def upload_files(files: List[UploadFile]):
     """
-    accepts : {
-        files:[array of files],
-        Mime/media type -> Multipart formdata
-    }
+        accepts : {
+            files:[array of files],
+            Mime/media type -> Multipart formdata
+        }
     
-    returns : {
-        data:[
-            {   
-                "type":"FeatureCollection",
-                "features":[...]
+        returns : {
+            data:[
+                {   
+                    "type":"FeatureCollection",
+                    "features":[...]
 
-            }
-        ],
-        message:"Response message",
-        status_code : 200 | 400 | 422 | 201 ...
-    }
+                }
+            ],
+            message:"Response message",
+            status_code : 200 | 400 | 422 | 201 ...
+        }
     
     """
     # TODO : Customize error message, support more file formats e.g shapefile(zipped), CSV
@@ -65,9 +65,9 @@ async def upload_files(files: List[UploadFile]):
 
 
 @router.post(path='/search-imagery')
-async def search_imagery(query:QueryRequestModel):
+async def search_imagery(query:ImagerySearchQueryRequestModel):
     """
-        Search for EO Imagery based on provided query parameters from the FE
+        Search for EO Imagery based on provided query parameters
 
     """
     query_dict = query.dict()

@@ -4,7 +4,7 @@ from datamanager.routers import router as datamanager_router
 
 #fastAPI module
 from fastapi import FastAPI
-
+from fastapi.middleware.cors import CORSMiddleware
 #titiler modules
 from titiler.core.errors import DEFAULT_STATUS_CODES, add_exception_handlers
 from titiler.application.routers.stac import stac
@@ -49,7 +49,12 @@ app = FastAPI(
     },
     # openapi_tags=tags_metadata,
 )
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+]
 
+app.add_middleware(CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=['*'],allow_headers=['*'])
 # Routers
 app.include_router(common_router)
 app.include_router(datamanager_router)

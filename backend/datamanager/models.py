@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 
 
-class QueryRequestModel(BaseModel):
+class ImagerySearchQueryRequestModel(BaseModel):
     collection:str
     start_date:str 
     end_date:str
