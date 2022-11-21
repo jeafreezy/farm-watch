@@ -1,7 +1,7 @@
 # custom modules
 from common.routers import router as common_router
 from datamanager.routers import router as datamanager_router
-
+from auth.routers import router as auth_router
 #fastAPI module
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -9,6 +9,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from titiler.core.errors import DEFAULT_STATUS_CODES, add_exception_handlers
 from titiler.application.routers.stac import stac
 from titiler.application.routers.cog import cog
+from dotenv import load_dotenv
+load_dotenv()
 
 
 # Swagger API custom description
@@ -52,13 +54,14 @@ app = FastAPI(
 origins = [
     "http://localhost",
     "http://localhost:3000",
+    "https://farm-watch-one.vercel.app"
 ]
 
 app.add_middleware(CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=['*'],allow_headers=['*'])
 # Routers
 app.include_router(common_router)
 app.include_router(datamanager_router)
-
+app.include_router(auth_router)
 app.include_router(cog.router, prefix="/cog", tags=["Cloud Optimized GeoTIFF"])
 add_exception_handlers(app, DEFAULT_STATUS_CODES)
 app.include_router(stac.router, prefix="/stac", tags=["SpatioTemporal Asset Catalog"])
