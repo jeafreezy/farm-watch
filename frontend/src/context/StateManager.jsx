@@ -1,11 +1,11 @@
 import { React } from 'react';
 import DataManagerProvider from './DataManagerContext';
-import SessionProvider from './SessionContext';
+import AuthProvider from './AuthContext';
 
 const StateManager = ({ children }) => (
-    <SessionProvider>
+    <AuthProvider>
         <DataManagerProvider>{children}</DataManagerProvider>
-    </SessionProvider>
+    </AuthProvider>
 );
 
 export default StateManager;

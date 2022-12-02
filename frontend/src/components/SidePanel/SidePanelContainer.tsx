@@ -1,7 +1,6 @@
 import React, { useState, useRef, ReactElement } from 'react';
 import PanelItems from './PanelItems';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import UserProfile from './UserProfile';
 
 const SidePanelContainer = (): ReactElement => {
     const [showPanel, setShowPanel] = useState(false);
@@ -26,7 +25,6 @@ const SidePanelContainer = (): ReactElement => {
             />
 
             <PanelItems showPanel={showPanel} />
-            <UserProfile showPanel={showPanel} />
         </div>
     );
 };

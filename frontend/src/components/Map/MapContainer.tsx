@@ -6,7 +6,7 @@ import ZoomControl from './ZoomControl';
 import React, { ReactElement } from 'react';
 const MapContainer = (): ReactElement => {
     return (
-        <div className="relative h-full w-full">
+        <div className="relative h-full w-full overflow-hidden">
             <Map />
             <div className="absolute top-[50vh] left-4 space-y-2">
                 <ZoomControl />
