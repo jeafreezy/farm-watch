@@ -1,31 +1,42 @@
-import React, { useState, useRef, ReactElement } from 'react';
-import PanelItems from './PanelItems';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import React, { ReactElement } from 'react';
+import { useDataManagerContext } from '../../context/DataManagerProvider';
+import { tabItems } from '../../utils/constants';
+import DatasetTab from './tabs/Datasets/DatasetsTabContainer';
+import InteractionsTab from './tabs/Interactions/InteractionsTab';
 
 const SidePanelContainer = (): ReactElement => {
-    const [showPanel, setShowPanel] = useState(false);
-    const sidebarRef = useRef<HTMLDivElement>(null);
-
-    const handleHamBurgerClickEvent = (): void => {
-        if (sidebarRef && sidebarRef.current) {
-            sidebarRef.current?.classList.toggle('active');
-            setShowPanel(!showPanel);
-        }
+    const { setActiveTab, activeTab } = useDataManagerContext();
+    const handleMenuClick = (id: number) => {
+        setActiveTab?.(id);
     };
-
     return (
-        <div
-            ref={sidebarRef}
-            className={` absolute right-0 hidden h-full w-[60px]  cursor-pointer  border-l-2 border-l-brand-black bg-brand-black-medium p-4 text-brand-white transition-all  duration-500 md:block`}
-        >
-            <GiHamburgerMenu
-                size={25}
-                className="text-brand-blue-light  hover:text-brand-blue"
-                onClick={handleHamBurgerClickEvent}
-            />
-
-            <PanelItems showPanel={showPanel} />
-        </div>
+        <aside className=" h-[93vh] cursor-pointer  rounded-lg bg-brand-black-medium">
+            <div className=" border-b-2 border-brand-black py-4 px-2 pb-0 text-center  text-brand-blue-light ">
+                <nav>
+                    <ul className="flex gap-2">
+                        {tabItems
+                            .filter((tab) => tab.isActive === true)
+                            .map((menu) => (
+                                <li
+                                    onClick={() => handleMenuClick(menu.id)}
+                                    className={`${
+                                        activeTab === menu.id &&
+                                        'border-b-2 border-white pb-2'
+                                    }  flex w-10 justify-center `}
+                                    key={menu.id}
+                                >
+                                    <menu.icon size={20} />
+                                </li>
+                            ))}
+                    </ul>
+                </nav>
+            </div>
+            {activeTab === 2 ? (
+                <InteractionsTab />
+            ) : activeTab === 1 ? (
+                <DatasetTab />
+            ) : null}
+        </aside>
     );
 };
 

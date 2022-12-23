@@ -34,9 +34,21 @@ input[type='search']:focus::-webkit-search-cancel-button {
 /* Tailwind Reusables  */
 @layer components {
     .zoom-controls {
-        @apply w-10 bg-brand-black bg-opacity-90 p-1 text-center  text-[25px] font-semibold text-brand-white  hover:bg-opacity-100;
+        @apply w-10 bg-brand-black bg-opacity-90 p-1 text-center  text-[25px] font-semibold text-brand-white  outline-none hover:bg-opacity-100;
     }
     .active {
         width: 190px !important;
+    }
+    .btn-primary {
+        @apply rounded-md bg-brand-black text-white hover:bg-brand-blue;
+    }
+    .btn-secondary {
+        @apply rounded-sm  bg-brand-blue-light opacity-90 hover:opacity-100;
+    }
+    .btn-default {
+        @apply bg-blue-50; /* todo */
+    }
+    .btn-danger {
+        @apply rounded-md bg-red-500 text-white opacity-90 hover:opacity-100;
     }
 }

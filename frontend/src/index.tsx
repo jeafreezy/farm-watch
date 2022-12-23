@@ -1,21 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import HomePage from './pages/Home';
 import 'react-toastify/dist/ReactToastify.css';
-import {
-    createBrowserRouter,
-    RouterProvider,
-  } from "react-router-dom";
-import ErrorPage from './404';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ErrorPage from './pages/404';
 
-  const router = createBrowserRouter([
+const router = createBrowserRouter([
     {
-      path: "/",
-      element: <App />,
-      errorElement: <ErrorPage />,
+        path: '/',
+        element: <HomePage />,
+        errorElement: <ErrorPage />,
     },
-  ]);
+]);
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement

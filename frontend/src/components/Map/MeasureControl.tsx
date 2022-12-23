@@ -1,13 +1,14 @@
 import React, { ReactElement } from 'react';
 import { RiRulerLine } from 'react-icons/ri';
+import ToolTip from '../ui/ToolTip';
 
 const MeasureControl = (): ReactElement => {
     return (
-        <div className="cursor-pointer rounded-lg  ">
-            <div className="zoom-controls rounded-lg p-2 ">
+        <ToolTip tooltip="Measure distance">
+            <button className="zoom-controls  rounded-lg p-2">
                 <RiRulerLine />
-            </div>
-        </div>
+            </button>
+        </ToolTip>
     );
 };
 

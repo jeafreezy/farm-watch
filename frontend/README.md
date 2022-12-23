@@ -26,3 +26,18 @@
 -   cd into the _frontend_ folder.
 -   run `yarn install`
 -   run `yarn run start`
+
+
+## TODO
+
+- Geocoding Service
+- Zoom in/out
+- Skeletons
+- Contexts
+- Refactor BE
+- Clean up
+- Readme
+- invalid file inputs
+- multiple dataset uploads
+- storing data in localstorage
+- use reducer and actions to update state
