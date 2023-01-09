@@ -5,7 +5,7 @@ import HomePage from './pages/Home';
 import 'react-toastify/dist/ReactToastify.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/404';
-
+import 'maplibre-gl/dist/maplibre-gl.css';
 const router = createBrowserRouter([
     {
         path: '/',

@@ -15,7 +15,7 @@
         "@types/react-dom": "^18.0.6",
         "axios": "^1.2.1",
         "framer-motion": "^8.0.2",
-        "maplibre-gl": "^2.4.0",
+        "maplibre-gl": "^2.3.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-draggable": "^4.4.5",
@@ -42,9 +42,9 @@
     },
     "browserslist": {
         "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
+            
+            "defaults",  
+            "not ie 11"
         ],
         "development": [
             "last 1 chrome version",
