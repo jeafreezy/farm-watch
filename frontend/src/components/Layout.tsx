@@ -34,10 +34,10 @@ const Layout = () => {
                 </header>
 
                 <main className="row-span-1 grid h-[93vh] grid-cols-5  ">
-                    <div className="order-2 hidden md:col-span-2 md:grid lg:col-span-1">
+                    <div className="order-2 hidden md:col-span-2 md:grid xl:col-span-1">
                         <SidePanelContainer />
                     </div>
-                    <div className="order-1 col-span-5 md:col-span-3 lg:col-span-4">
+                    <div className="order-1 col-span-5 md:col-span-3 xl:col-span-4">
                         <MapContainer />
                     </div>
                     <Drawer
