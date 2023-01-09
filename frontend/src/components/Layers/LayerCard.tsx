@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Draggable from 'react-draggable';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { HiOutlineDuplicate } from 'react-icons/hi';
 import { MdKeyboardArrowDown } from 'react-icons/md';
@@ -28,7 +27,7 @@ const LayerCard = ({ layer, index }: TLayerCard) => {
         duplicateLayer?.(index);
     };
     return (
-        <Draggable>
+        
             <div className="App">
                 {' '}
                 <div className="group flex items-center justify-between gap-2 bg-brand-black p-2 font-extralight text-white opacity-80 hover:opacity-100">
@@ -55,7 +54,7 @@ const LayerCard = ({ layer, index }: TLayerCard) => {
                     </div>
                 </div>
             </div>
-        </Draggable>
+        
     );
 };
 

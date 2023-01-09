@@ -24,7 +24,6 @@ const Layout = () => {
                         <CustomButton
                             variant="primary"
                             action={onOpen}
-                            ref={btnRef}
                             styleOverride="block md:hidden hover:bg-brand-black hover:bg-opacity-80"
                         >
                             <GiHamburgerMenu />
