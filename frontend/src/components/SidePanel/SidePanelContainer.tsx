@@ -10,7 +10,7 @@ const SidePanelContainer = (): ReactElement => {
         setActiveTab?.(id);
     };
     return (
-        <aside className=" h-[93vh] cursor-pointer  rounded-lg bg-brand-black-medium">
+        <aside className=" h-[93vh] cursor-pointer rounded-lg rounded-l-none bg-brand-black-medium">
             <div className=" border-b-2 border-brand-black py-4 px-2 pb-0 text-center  text-brand-blue-light ">
                 <nav>
                     <ul className="flex gap-2">

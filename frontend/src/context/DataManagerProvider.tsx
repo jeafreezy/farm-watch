@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import Alert from '../components/Alert';
+import Alert from '../components/ui/Alert';
 import { DataManagerService } from '../services/DataManagerService';
 
 export type TDataManagerContext = {

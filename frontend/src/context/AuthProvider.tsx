@@ -1,5 +1,5 @@
 import React, { useState, useContext, createContext, useEffect } from 'react';
-import Alert from '../components/Alert';
+import Alert from '../components/ui/Alert';
 import { AuthService } from '../services/AuthService';
 
 export type TAuthContext = {
