@@ -27,17 +27,18 @@
 -   run `yarn install`
 -   run `yarn run start`
 
-
 ## TODO
 
-- Geocoding Service
-- Zoom in/out
-- Skeletons
-- Contexts
-- Refactor BE
-- Clean up
-- Readme
-- invalid file inputs
-- multiple dataset uploads
-- storing data in localstorage
-- use reducer and actions to update state
+-   Skeletons
+-   Refactor BE
+-   Readme
+-   invalid file inputs
+-   multiple dataset uploads
+-   storing data in localstorage
+-   use reducer and actions to update state
+-   fine tune draggable
+-   tooltip
+-   editable title
+-   layer settings
+-   layer addition on the map
+-   attribution on map

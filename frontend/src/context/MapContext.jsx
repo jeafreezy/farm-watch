@@ -10,7 +10,7 @@ const MapProvider = ({ children }) => {
         const map = new maplibregl.Map({
             container: 'mapContainer',
             center: [-122.420679, 37.772537],
-            zoom: 13,
+            zoom: 4,
             hash: true,
             minZoom: 0,
             maxZoom: 20,

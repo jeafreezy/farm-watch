@@ -15,11 +15,13 @@ export default function DeleteModal({
     onClose,
     action,
     filename,
+    layerCount,
 }: {
     isOpen: any;
     onClose: any;
     action: any;
     filename: string;
+    layerCount?: number;
 }) {
     const { loading } = useDataManagerContext();
     return (
@@ -38,6 +40,10 @@ export default function DeleteModal({
                                 </span>{' '}
                                 ?
                             </h1>
+                            <small className="font-light">
+                                Deleting this dataset will affect {layerCount}{' '}
+                                layers.
+                            </small>
                         </div>
                         <div className="self-end">
                             <CustomButton variant="danger" action={action}>

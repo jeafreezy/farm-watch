@@ -1,7 +1,5 @@
-import SidePanelContainer from '../SidePanel/SidePanelContainer';
 import Geocoder from './Geocoder';
 import Map from './Map';
-// import MeasureControl from './MeasureControl';
 import ZoomControl from './ZoomControl';
 import React, { ReactElement } from 'react';
 const MapContainer = (): ReactElement => {

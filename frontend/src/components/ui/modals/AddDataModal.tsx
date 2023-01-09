@@ -5,7 +5,7 @@ import {
     ModalBody,
     ModalCloseButton,
 } from '@chakra-ui/react';
-import { FileUploadContainer } from '../../SidePanel/tabs/Datasets/FileUploader';
+import FileUploadContainer from '../../Datasets/FileUploader';
 
 export function AddDataModal({
     isOpen,

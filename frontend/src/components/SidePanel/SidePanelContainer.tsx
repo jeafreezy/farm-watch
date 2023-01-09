@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import { useDataManagerContext } from '../../context/DataManagerProvider';
 import { tabItems } from '../../utils/constants';
-import DatasetTab from './tabs/Datasets/DatasetsTabContainer';
-import InteractionsTab from './tabs/Interactions/InteractionsTab';
+import DataTab from './DataTab';
+import InteractionsTab from '../Interactions/InteractionsTab';
 
 const SidePanelContainer = (): ReactElement => {
     const { setActiveTab, activeTab } = useDataManagerContext();
@@ -34,7 +34,7 @@ const SidePanelContainer = (): ReactElement => {
             {activeTab === 2 ? (
                 <InteractionsTab />
             ) : activeTab === 1 ? (
-                <DatasetTab />
+                <DataTab />
             ) : null}
         </aside>
     );

@@ -1,14 +1,14 @@
 import React from 'react';
-import { useDataManagerContext } from '../../../../context/DataManagerProvider';
-import CustomButton from '../../../ui/CustomButton';
-import { Spinner } from '../../../ui/Spinner';
-import DatasetList from './DatasetList';
-import DataUploadInfo from './DataUploadInfo';
+import { useDataManagerContext } from '../../context/DataManagerProvider';
+import CustomButton from '../ui/CustomButton';
+import { Spinner } from '../ui/Spinner';
+import DatasetList from '../Datasets/DatasetList';
+import DataUploadInfo from '../Datasets/DataUploadInfo';
 import { useDisclosure } from '@chakra-ui/react';
-import { AddDataModal } from '../../../ui/modals/AddDataModal';
-import LayerList from './LayerList';
+import { AddDataModal } from '../ui/modals/AddDataModal';
+import LayerList from '../Layers/LayerList';
 
-const DatasetTab = () => {
+const DataTab = () => {
     const { loading, files, datasets, layers, uploadData } =
         useDataManagerContext();
     const { onOpen, isOpen, onClose } = useDisclosure();
@@ -65,4 +65,4 @@ const DatasetTab = () => {
     );
 };
 
-export default DatasetTab;
+export default DataTab;

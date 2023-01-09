@@ -1,6 +1,6 @@
 import React from 'react';
-import { bytesToMb } from '../../../../utils/bytesToMb';
-import { wordTrimmer } from '../../../../utils/wordWrapper';
+import { bytesToMb } from '../../utils/bytesToMb';
+import { wordTrimmer } from '../../utils/wordWrapper';
 
 type TDataUploadInfo = {
     file: File;

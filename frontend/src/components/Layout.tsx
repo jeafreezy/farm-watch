@@ -1,4 +1,3 @@
-import React from 'react';
 import MapContainer from './Map/MapContainer';
 import SidePanelContainer from './SidePanel/SidePanelContainer';
 import UserProfile from './Header/UserProfile';

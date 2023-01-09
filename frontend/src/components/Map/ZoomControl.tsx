@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { useMapContext } from '../../context/MapContext';
 import ToolTip from '../ui/ToolTip';
 
+
 const ZoomControl = (): ReactElement => {
     const { mapInstance } = useMapContext();
 

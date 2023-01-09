@@ -1,7 +1,7 @@
 import React from 'react';
-import EmptyState from '../../../ui/EmptyState';
+import EmptyState from '../ui/EmptyState';
 import LayerList from './LayerList';
-import LayerLoadingSkeleton from '../../../ui/skeletons/LayerLoadingSkeleton';
+import LayerLoadingSkeleton from '../ui/skeletons/LayerLoadingSkeleton';
 
 //todo work on logic to add layers to the map and to the layers tab from the dataset tab
 // logic to enable search of datasets to add to layers tab

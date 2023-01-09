@@ -1,9 +1,9 @@
 import { useDropzone } from 'react-dropzone';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { useCallback } from 'react';
-import { useDataManagerContext } from '../../../../context/DataManagerProvider';
+import { useDataManagerContext } from '../../context/DataManagerProvider';
 import { Divider } from '@chakra-ui/react';
-export function FileUploadContainer({ onClose }: { onClose: any }) {
+export default function FileUploadContainer({ onClose }: { onClose: any }) {
     const { setFiles } = useDataManagerContext();
     const onDrop = useCallback(
         (acceptedFiles: any) => {
