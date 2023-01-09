@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 from fastapi import UploadFile
-
 from .models import ImagerySearchQueryRequestModel
 from .utils import file_transformer, validate_files
 from common.responses import api_response
@@ -24,7 +23,7 @@ HEADERS = {
 
 
 @router.post("/upload-files")
-async def upload_files(files: List[UploadFile]):
+def upload_files(files: List[UploadFile]):
     """
         accepts : {
             files:[array of files],
@@ -44,10 +43,10 @@ async def upload_files(files: List[UploadFile]):
         }
     
     """
-    # TODO : Customize error message, support more file formats e.g shapefile(zipped), CSV
+    
 
     # validate files
-
+   
     validated_files, status_code, message = validate_files(files)
 
     if status_code != 200:
@@ -68,7 +67,6 @@ async def upload_files(files: List[UploadFile]):
 async def search_imagery(query:ImagerySearchQueryRequestModel):
     """
         Search for EO Imagery based on provided query parameters
-
     """
     query_dict = query.dict()
 
@@ -95,9 +93,9 @@ async def search_imagery(query:ImagerySearchQueryRequestModel):
     
 
 
-    client = httpx.AsyncClient()
+    with httpx.AsyncClient() as client:
 
-    res = await client.post(url=STAC_ENDPOINT,headers=HEADERS,json=post_body)
-    
-    return res.json()
+        res = await client.post(url=STAC_ENDPOINT,headers=HEADERS,json=post_body)
+        
+        return res.json()
     

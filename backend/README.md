@@ -52,10 +52,3 @@
 
 - Field : A land used for agricultural purposes. These lands are represented with polygon geometries.
 
-## PRIORITY
-
-- Imagery Search
-- Tiler
-- Band Math
-- Weather
-- Data manager

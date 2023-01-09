@@ -1,10 +1,10 @@
 
-from copy import copy
+
 from typing import List
 from fastapi import UploadFile
 import fiona 
 
-SUPPORTED_FORMATS = "GPKG, GeoJSON, WKT, TopoJSON"
+SUPPORTED_FORMATS = {"gpkg","geojson","topojson","wkt"}
 SUPPORTED_GEOMETRY_TYPE = {"Polygon","MultiPolygon"}
 
 GEOJSON_SCHEMA = {
@@ -17,12 +17,13 @@ GEOJSON_SCHEMA = {
 
 def validate_files(files: List[UploadFile]):
 
-    supported_formats = {"gpkg","geojson","topojson","wkt"}
+    
     validated_files = []
     # check formats
     for file in files:
+        
         file_format = file.filename.split(".")[1]
-        if file_format.lower() not in supported_formats:
+        if file_format.lower() not in SUPPORTED_FORMATS:
             return (
                 None,
                 422,
@@ -98,7 +99,7 @@ def validate_feature(feature):
 
     return validated_feature , 200, "Feature is valid"
 
-def modify_feature(validated_feature,feature,original_datasource):
+def modify_feature(validated_feature,feature,original_datasource,filename):
 
     
     #update current feature coordinates with validated feature
@@ -106,15 +107,17 @@ def modify_feature(validated_feature,feature,original_datasource):
     
     #copy to preserve other info e.g properties
 
-    modified_feature = copy(feature)
-
+    modified_feature = feature
+    
     modified_feature.update({
         "bbox":original_datasource.bounds
     })
     modified_feature["properties"].update({
         "crs":original_datasource.crs
     })
-
+    modified_feature["properties"].update({
+        "name":filename
+    })
     modified_feature["geometry"].update({
         
         "coordinates":validated_feature
@@ -127,7 +130,7 @@ def file_transformer(valid_files: List[UploadFile]):
         with fiona.open(file.file) as datasource:
             
             feature_count = len(datasource)
-
+            
             if feature_count == 0:
                 return None, 400, f"Invalid Feature. File must contain a valid Feature"
 
@@ -140,7 +143,7 @@ def file_transformer(valid_files: List[UploadFile]):
                 if not status_code == 200:
                     return None, status_code,message
 
-                modified_feature = modify_feature(validated_feature=validated_feature,feature=datasource[0],original_datasource=datasource)
+                modified_feature = modify_feature(validated_feature=validated_feature,feature=datasource[0],original_datasource=datasource,filename=file.filename)
 
                 GEOJSON_SCHEMA["features"].append(modified_feature)
 
@@ -154,7 +157,7 @@ def file_transformer(valid_files: List[UploadFile]):
                     if not status_code == 200:
                         return None, status_code,message
 
-                    modified_feature = modify_feature(validated_feature=validated_feature,feature=feature,original_datasource=datasource)
+                    modified_feature = modify_feature(validated_feature=validated_feature,feature=feature,original_datasource=datasource,filename=file.filename)
 
                     GEOJSON_SCHEMA["features"].append(modified_feature)
     return GEOJSON_SCHEMA, 200, f"Feature transformed successfully"
